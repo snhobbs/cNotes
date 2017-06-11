@@ -54,7 +54,7 @@
 
 	\begin{questions}{Pointers}
 		
-		\rsrc{Wikipedia}\href{https://en.wikipedia.org/wiki/Pointer_(computer_programming)#C_and_C.2B.2B}{Link}
+		\rsrc{Wikipedia}\url{https://en.wikipedia.org/wiki/Pointer_(computer_programming)#C_and_C.2B.2B}
 	
 		\begin{questionAnswer}
 			\qItem{Pointer}{ }
@@ -68,10 +68,10 @@
 
 		A type qualifier is a keyword that is applied to a type, resulting in a qualified type. 
 		\begin{questionAnswer}
-			\qItem{volatile}{ }
-			\qItem{const}{Makes variable value or pointer parameter unmodifiable. Use: const \opt{var} [= \opt{value}];. The value can be indirectly modified with a pointer argument: *(int*)&\opt{vat} = \opt{value};}
-			\qItem{restrict}{ }
-			\qItem{\_Atomic}{ }
+			\qItem{volatile}{$>=$C89 \& C++. Indicates that an object may be changed by something external to the program at any time and so must be re-read from memory every time it is accessed}
+			\qItem{const}{$>=$C89 \& C++. Makes variable value or pointer parameter unmodifiable. Use: const \opt{var} [= \opt{value}];. The value can be indirectly modified with a pointer argument: *(int*)\&\opt{vat} = \opt{value};}
+			\qItem{restrict}{$>=$C99, Restrict declares that for the lifetime of the pointer, only the pointer itself or a value directly derived from it (such as pointer + 1) will be used to access the object to which it points. This limits the effects of pointer aliasing, aiding optimizations. Non standard in C++ (gcc uses \_\_restrict\_\_)}
+			\qItem{\_Atomic}{$>=$C11 \opt{stdatomic.h}, in C++ with \opt{atomic}. The atomic library provides components for fine-grained atomic operations allowing for lockless concurrent programming. Each atomic operation is indivisible with regards to any other atomic operation that involves the same object. Atomic objects are free of data races. Useful for multithreaded code \href{http://en.cppreference.com/w/c/language/atomic}{C++ ref}}
 		\end{questionAnswer}
 	\end{questions}
 
@@ -84,6 +84,7 @@
 			\qItem{register}{Tells the compiler to try and use a CPU register for the variable as to optimize access to that variable. If optimization is turned on this is done automatically. Use: register \opt{data type} \opt{var}; NOTE: it is not possible to take the address of a register variable.}
 			\qItem{extern}{Indicates that an identifier is defined elsewhere. Same as a global in python. extern is used by default for function definitions.  When you use 'extern', the variable cannot be initialized however, it points the variable name at a storage location that has been previously defined.}
 			\qItem{static}{Instructs the compiler to keep a local variable in existence during the life-time of the program instead of creating and destroying it each time it comes into and goes out of scope. Therefore, making local variables static allows them to maintain their values between function calls.}
+			\qItem{Allocated memory}{Memory reserved with malloc/free. Located on the heap, in existance until freed}
 		\end{questionAnswer}
 	\end{questions}
 \end{document}
