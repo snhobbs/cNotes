@@ -1,0 +1,89 @@
+\documentclass{notes}
+\begin{document}
+
+\chapter{Data Types}
+
+		\rsrc{C Keywords} \href{http://tigcc.ticalc.org/doc/keywords.html}{Link}
+
+\rsrc{Wiki data types}\href{https://en.wikipedia.org/wiki/C_data_types}{Wiki Link}
+
+	\begin{questions}{Basic Types}
+		
+		\begin{questionAnswer}
+			\qItem{int}{Integer, reflects the size of a word on the current architecture. Atleast 16 bits}
+			\qItem{char}{8 bit value}
+			\qItem{short}{Short integer, atleast 16 bits.}
+			\qItem{long}{Long integer, atleast 32 bits}
+			\qItem{long long}{Extra long integer, atleast 64 bits, in version $>=$ c99}
+			\qItem{float}{Single persision float}
+			\qItem{double}{Double percision float}
+			\qItem{long double}{Maps to either a quadruple precision floating point or defaults to a double depending on the compiler}
+		\end{questionAnswer}
+	\end{questions}
+
+	\begin{questions}{Signed values}
+
+		\rsrc{Wikipedia Two's Compliment}\href{https://en.wikipedia.org/wiki/Two's_complement}{Wiki Link}
+
+		\begin{questionAnswer}
+			\qItem{signed}{Plain declarations to the above data types default to signed, 2's compliment values}
+			\qItem{unsigned}{Use: unsigned \opt{data type} for an unsigned value}
+		\end{questionAnswer}
+	\end{questions}
+
+	\begin{questions}{Fixed-width integer types}
+		These types are found in \opt{inttypes.h}/\opt{cinttypes}, they are also in \opt{stdint.h}/\opt{cstdint}. These data types allow for specified lengths of 8, 16, 32, 64 and higher if supported.
+
+		\rsrc{C$++$ Ref}\href{http://www.cplusplus.com/reference/cinttypes/}{Link}
+		\begin{questionAnswer}
+			\qItem{intmax\_t}{Largest supported integer}
+			\qItem{int\opt{N}\_t}{Specified integer length of \opt{N} bits. NOTE: Optional}
+			\qItem{int\_least\opt{N}\_t}{Integer of $<=$ \opt{N}}
+			\qItem{int\_fast\opt{N}\_t}{Fastest signed integer type with a width of at least \opt{N}}
+			\qItem{intptr\_t}{Large enough to handle any pointer. NOTE: Optional}
+		\end{questionAnswer}
+	\end{questions}	
+
+	\begin{questions}{Booleans}
+		\rsrc{C$++$ Ref}\href{http://www.cplusplus.com/reference/cstdbool/}{Link}
+
+		c99 added type \_Bool which is either 1 or 0. Using the header \opt{stdbool.h}/\opt{cstdbool} the data type bool is defined as is true/false.	
+
+
+	\end{questions}
+
+	\begin{questions}{Pointers}
+		
+		\rsrc{Wikipedia}\href{https://en.wikipedia.org/wiki/Pointer_(computer_programming)#C_and_C.2B.2B}{Link}
+	
+		\begin{questionAnswer}
+			\qItem{Pointer}{ }
+			\qItem{Function pointers}{ }
+		\end{questionAnswer}
+	\end{questions}
+
+	\begin{questions}{Type Qualifiers}
+
+		\rsrc{Type Qualifiers}\href{https://en.wikipedia.org/wiki/Type_qualifier}{Wiki Link}
+
+		A type qualifier is a keyword that is applied to a type, resulting in a qualified type. 
+		\begin{questionAnswer}
+			\qItem{volatile}{ }
+			\qItem{const}{Makes variable value or pointer parameter unmodifiable. Use: const \opt{var} [= \opt{value}];. The value can be indirectly modified with a pointer argument: *(int*)&\opt{vat} = \opt{value};}
+			\qItem{restrict}{ }
+			\qItem{\_Atomic}{ }
+		\end{questionAnswer}
+	\end{questions}
+
+	\begin{questions}{Storage Classes}
+		
+		\rsrc{C storage classes} \href{http://www.tutorialspoint.com/cprogramming/c_storage_classes.htm}{Link}
+
+		\begin{questionAnswer}
+			\qItem{auto}{Default storage class for all local variables. }
+			\qItem{register}{Tells the compiler to try and use a CPU register for the variable as to optimize access to that variable. If optimization is turned on this is done automatically. Use: register \opt{data type} \opt{var}; NOTE: it is not possible to take the address of a register variable.}
+			\qItem{extern}{Indicates that an identifier is defined elsewhere. Same as a global in python. extern is used by default for function definitions.  When you use 'extern', the variable cannot be initialized however, it points the variable name at a storage location that has been previously defined.}
+			\qItem{static}{Instructs the compiler to keep a local variable in existence during the life-time of the program instead of creating and destroying it each time it comes into and goes out of scope. Therefore, making local variables static allows them to maintain their values between function calls.}
+		\end{questionAnswer}
+	\end{questions}
+\end{document}
