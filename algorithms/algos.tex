@@ -1,16 +1,51 @@
-\documentclass{notes}
-\begin{document}
 Heuristics \ra efficient algos that get a good although not necessarily perfect solution
-\chapter{Big-O Notation}
+\chapter{Algorithms}
+\section{Asymptotics}
 How the algorithm grows as N \ra $\infty$.
+
+\rsrc{Algorithms by David Sedgewick} Page 67
+
+\rsrc{David Mount Notes}\href{http://www.cs.umd.edu/~mount/251/Lects/251lects.pdf}{Link}
 
 \rsrc{Big-O Notation}\href{https://en.wikipedia.org/wiki/Big_O_notation}{Wiki Link}
 
 \rsrc{Time Complexity}\href{https://en.wikipedia.org/wiki/Time_complexity#Constant_time}{Wiki Link}
 
+\subsection{Notation}
+	\textbf{$\Theta$}: The asymptotic class of an algo. 
+	\begin{equation}
+		\Theta(g(n)) \equiv \bigg\{f(n), 0<=c_1g(n)<=f(n)<=c_2g(n) | c_1, c_2, n_0 \in |\Re| \textrm{ and } n_0 <= n \bigg\}
+	\end{equation}
+	For a algo to be $\Theta$(g(n)) it needs to be both O(g(n)) and $\Omega$(g(n)). A $\Theta$(g(n)) grows at exactly g(n).
+
+	\hspace{11pt}
+	
+	\textbf{O}: Upper asymptotic bound for an algo. An algo that has O(g(n)) grows at or slower than that rate. 
+		\begin{equation}
+			O(g(n)) \equiv \bigg\{f(n) | 0<= f(n) <=cg(n) | c, n_0 \in |\Re| \textrm{ and } n_0 <= n \bigg\}
+		\end{equation}
+
+	\hspace{11pt}
+
+	\textbf{$\Omega$}: The lower bound on the growth. An algo w/ $\Omega$(g(n)) grows at or faster than g(n). 
+		\begin{equation}
+			\Omega(g(n)) \equiv \bigg\{f(n) | 0 <= cg(n) <= f(n) | c_1, c_2, n_0 \in |\Re| \textrm{ and } n_0 <= n \bigg\}
+		\end{equation}
+
+
+\subsection{Asymptotic Analysis}
+\subsubsection{(Strong) Induction}
+\subsubsection{Iteration}
+\subsubsection{Recurrance}
+
+\subsection{Master's Theorem}
+
+\begin{table}
+	\caption{Asymptotic growth types}
+	\label{table:asymtoticGrowth}
 \begin{tabular}{lll}
 \hline\hline
-Notation& Name& Example\\
+Notation& Name& Example\\\hline
 O(1)&Constant&Seeing if a binary number is even or odd\\
 O(log log n) &Double Logarthmic& \\
 O(log n)& Logarithmic& Finding and item in a sorted array with binary search\\
@@ -23,13 +58,26 @@ O(n$^2$)& Quadratic&Common limit on sorting\\
 O(n$^c$)& Polynomial& LU decomposition\\
 \hline\hline
 \end{tabular}
+\end{table}
 
-\chapter{Searching}
-\section{Binary Search}
+\section{Searching}
+\subsection{Binary Search}
 
 \rsrc{Binary Search}\href{https://en.wikipedia.org/wiki/Binary_search_algorithm}{Wiki Link}
 
-\section{Linear Search}
+\subsection{Linear Search}
 
 \rsrc{Linear Search}\href{https://en.wikipedia.org/wiki/Linear_search}{Wiki Link}
-\end{document}
+
+\section{Algorithm Types}
+\subsection{Divide \& Conquer}
+
+\section{Sorting}
+\subsection{Merge Sort}
+\subsection{Heap Sort}
+\subsection{Quick Sort}
+\subsection{Bubble Sort}
+\subsection{Insertion Sort}
+\subsection{Selection Sort}
+\subsection{Count Sort}
+\subsection{Radix Sort}

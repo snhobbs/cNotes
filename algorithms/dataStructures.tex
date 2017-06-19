@@ -1,11 +1,6 @@
-\documentclass{notes}
-
-\usepackage{tikz}
-\usetikzlibrary{calc,shapes.multipart,chains,arrows}
-\begin{document}
-
-\chapter{Categories}
-\section{Primative Types}
+\chapter{Data Structures}
+\section{Data Types}
+\subsection{Primative Types}
 
 \rsrc{Primatives} \href{https://en.wikipedia.org/wiki/Primitive_data_type}{Wiki Link}
 
@@ -21,23 +16,23 @@ These are the basic elements:
 		\item enum
 	\end{enumerate}
 
-\section{Composite Types}
+\subsection{Composite Types}
 
 \rsrc{Composites}\href{https://en.wikipedia.org/wiki/Composite_data_type}{Wiki Link}
 
 
-\section{Abstract Data Types}
+\subsection{Abstract Data Types}
 
 \rsrc{Abstract Types}\href{https://en.wikipedia.org/wiki/Abstract_data_type}{Wiki Link}
 
-\section{Linear Data Structures}
+\subsection{Linear Data Structures}
 
 
 
-\chapter{Abstract Data Types}
+\section{Abstract Data Types}
 Abstract data types (ADT) \ra its only a data structure if you're talking about the implimentation.
 
-\section{Trees}
+\subsection{Trees}
 
 	\rsrc{Tree}\href{https://en.wikipedia.org/wiki/Tree_(data_structure)}{Wiki Link}
 	
@@ -68,13 +63,13 @@ Abstract data types (ADT) \ra its only a data structure if you're talking about 
 	\end{tabular}
 \end{table}
 
-\subsection{Search Tree}
+\subsubsection{Search Tree}
 
 \rsrc{Search Tree}\href{https://en.wikipedia.org/wiki/Search_tree}{Wiki Link}
 
 Tree data structure used for locating specific keys from within a set. Needs to be relatively balanced to be efficient.
 
-\subsection{Binary Trees}
+\subsubsection{Binary Trees}
 
 \rsrc{Binary Trees}\href{http://www.allisons.org/ll/AlgDS/Tree/}{Allisons Link}\\
 \rsrc{Binary Trees}\href{https://en.wikipedia.org/wiki/Binary_tree}{Wiki Link}
@@ -86,7 +81,7 @@ Tree data structure used for locating specific keys from within a set. Needs to 
 
 \rsrc{Merkle Tree}\href{https://en.wikipedia.org/wiki/Merkle_tree}{Wiki Link}
 
-\section{Trie}
+\subsection{Trie}
 
 \rsrc{Trie}\href{https://en.wikipedia.org/wiki/Trie}{Wiki Link}
 
@@ -123,21 +118,22 @@ Drawbacks:
 
 
 
-\section{Heap}
+\subsection{Heap}
 
 \rsrc{The Heap}\href{https://en.wikipedia.org/wiki/Heap_%28data_structure%29}{Wiki Link}
 
 	Tree data type, subtype of a priority queue. two types \ra min and max. In a min/max heap the root is the lowest/highest value in the tree.
 
 	The binary heap was introduced for the heap sort algorithm. The heap is partially ordered.
-	\begin{tabular}{rp{.8\textwidth}}
+
+	\begin{itemize}
 		\item Heap Property: with P \ra parent node, C \ra child node, then the key of P is ordered with respect to C. This applies for every child and parent.
 		\item The root is the lowest or highest value
 		\item Items always go in the next free slot. If it isnt in the right place compare to its parent and swap is the parent is smaller/larger.
-	\end{tabular}
+	\end{itemize}
 
 
-\section{Sets}
+\subsection{Sets}
 \rsrc{Sets}{\href{https://en.wikipedia.org/wiki/Set_(abstract_data_type)}{Wiki Link}
 
 \section{Hashes}
@@ -184,8 +180,8 @@ Puts a key through a hash function to find/retrieve an index to an array of buck
 
 \end{tabular}
 
-\section{Linked Lists}
-\subsection{Singley linked lists}
+\subsection{Linked Lists}
+\subsubsection{Singley linked lists}
 \begin{center}
 \begin{tikzpicture}[list/.style={rectangle split, rectangle split parts=2,
 		    draw, rectangle split horizontal}, >=stealth, start chain]
@@ -200,10 +196,10 @@ Puts a key through a hash function to find/retrieve an index to an array of buck
 		    \draw[*->] let \p1 = (C.two), \p2 = (C.center) in (\x1,\y2) -- (D);
 	\end{tikzpicture}
 \end{center}
-\subsection{Doubley linked lists}
+\subsubsection{Doubley linked lists}
 
 
-\section{Queue}
+\subsection{Queue}
 
 \rsrc{Queue}\href{https://en.wikipedia.org/wiki/Queue_(abstract_data_type)}{Wiki Link}
 
@@ -213,22 +209,21 @@ Fifo, any added item are added to the end/tail of the structure (inqueued). Item
 	\item Simulate waiting lines
 	\item Buffers for I/O
 \end{itemize}
-
+\subsection{Priority Queue}
 	
-	\section{Stack}
+	\subsection{Stack}
 
 	\rsrc{The Stack}\href{https://en.wikipedia.org/wiki/Stack_(abstract_data_type)}{Wiki Link}
 
 	Opposite of a queue \ra LIFO
 
 
-\section{Ring Buffer}
+\subsection{Ring Buffer}
 
 \rsrc{Ring Buffer}\href{https://en.wikipedia.org/wiki/Circular_buffer}{Wiki Link}
 
-\subsection{Union}
+\subsubsection{Union}
 	\subsubsection{Tagged Union}
 
 
 
-\end{document}
