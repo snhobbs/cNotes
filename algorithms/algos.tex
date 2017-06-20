@@ -1,5 +1,8 @@
 Heuristics \ra efficient algos that get a good although not necessarily perfect solution
 \chapter{Algorithms}
+
+\rsrc{NIST Dictionary of Algos and Data Structs}\href{https://xlinux.nist.gov/dads/}{NIST Link}
+
 \section{Asymptotics}
 How the algorithm grows as N \ra $\infty$.
 
@@ -33,37 +36,61 @@ How the algorithm grows as N \ra $\infty$.
 		\end{equation}
 
 		\subsection{Performace}
-		\subsubsection{Worst Case}
-		\subsubsection{Best Case}
-		\subsection{Average Case}
+		Some algorithms, classically quicksort, have drastically different average and worst case performance. The best case is seldom used.
+		\begin{description}
+			\item[Worst Case: ] $T_{worst}(n) \equiv max_{|I|=n}T(I)$. The worst possible performance with legal input.
+			\item[Best Case: ] The fastest performance \ra a sorting algorithm realizing its already sorted
+			\item[Average Case: ] $T_{avg}(n) \equiv \sum_{|I|=n} p(I)T(I)$ Where p(I) is the probability weight of T(I) occuring.
+		\end{description}
 
 \subsection{Asymptotic Analysis}
-\subsubsection{(Strong) Induction}
-\subsubsection{Iteration}
-\subsubsection{Recurrance}
-
-\subsection{Master's Theorem}
-
-
 \begin{table}
 	\caption{Asymptotic growth types}
 	\label{table:asymtoticGrowth}
-\begin{tabular}{lll}
+	\begin{tabular}{llp{.5\textwidth}}
 \hline\hline
 Notation& Name& Example\\\hline
-O(1)&Constant&Seeing if a binary number is even or odd\\
+O(1)&Constant Time&Seeing if a binary number is even or odd\\
 O(log log n) &Double Logarthmic& \\
 O(log n)& Logarithmic& Finding and item in a sorted array with binary search\\
 O( (log n)$^c$ ) w/ $c>1$& Polylogarithmic& \\
 O(n$^c$) w/ $0<c<1$&Fractional power &Searching in a kd-tree \\
 O(n)& Linear& Find an item in an unsorted list\\
 O(n log*n)& n log-star n& Union-find\\
-O(n log n)& quasilinear/linearithmic& FFT\\
-O(n$^2$)& Quadratic&Common limit on sorting\\
+O(n log n)& quasilinear/linearithmic&Theoretical limit on sorting based on comparison (heapsort, mergesort, quicksort)\\
+O(n$^2$)& Quadratic&Simple comparison sorting (bubble, selection, etc)\\
 O(n$^c$)& Polynomial& LU decomposition\\
+O(2$^n$),O(n$^n$),O(n!)&Exponential&\\
 \hline\hline
 \end{tabular}
 \end{table}
+
+\subsubsection{(Strong) Induction}
+\subsubsection{Iteration}
+\subsubsection{Recurrance}
+\subsubsection{Bounding}
+\subsubsection{Integration}
+\subsection{Master's Theorem}
+\rsrc{Masters Theorem}\href{https://en.wikipedia.org/wiki/Master_theorem}{Wiki Link}
+
+\rsrc{Akra-Bazzi Method}\href{https://en.wikipedia.org/wiki/Akra%E2%80%93Bazzi_method}{Wiki Link}
+
+
+	For divide and conquer algos. The generalization of this is the Akra-Bazzi method
+	Let a $>=$ 1, b$>$ 1 be constants and let T(n) be the recurrence:
+	\begin{equation}
+		T(n) =  aT(n/b) = N^k    n>=0
+	\end{equation}
+	Assume n is a power of b and the basis case T(1) be a constant. Then:
+		\begin{description}
+			\item[Case 1:] if $a > b^k$ then T(n) $\in \Theta(n^{log_b a})$
+			\item[Case 2:] if $a == b^k$ then T(n) $\in \Theta(n^k log n)$
+			\item[Case 3:] if $a < b^k$ then T(n) $\in \Theta(n^k)$
+		\end{description}
+
+		Merge sort has a=2, b=2, k=1 so $T(n) \in \Theta(n log n)$
+		Binary search a=1, b=2, k=0 so $T(n) \in \Theta(log n)$
+
 
 \section{Algorithm Types}
 \subsection{Divide \& Conquer}
@@ -90,3 +117,6 @@ O(n$^c$)& Polynomial& LU decomposition\\
 \subsection{Selection Sort}
 \subsection{Count Sort}
 \subsection{Radix Sort}
+\section{Peak Finding}
+\subsection{Simplex}
+
