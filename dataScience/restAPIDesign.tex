@@ -1,0 +1,122 @@
+%restAPIDesign.tex
+	\chapter{Rest API}
+		\section{Resources}
+			\begin{tabular}{ll}
+				\textbf{Design}&\href{http://blog.octo.com/en/design-a-rest-api/}{Link}\\
+				\textbf{HTTP Status Codes}&\href{http://blog.octo.com/wp-content/uploads/2014/12/OCTO-Refcard_API_Design_EN_3.0.pdf}{Link}\\
+				\textbf{REST Tutorial}&\href{http://www.restapitutorial.com/}{Link}\\
+				\textbf{Video}&\href{https://youtu.be/llpr5924N7E}{Link}
+			\end{tabular}
+
+	\chapter{Definition}
+		\begin{questions}{Rest API}
+			\begin{itemize}
+				\item Resource based
+				\item Uses Nouns not Verbs
+				\item Identified by URI \ra multiple my refer to the same resource
+				\item Repersentation is not the resource, there can be multiple Repersentation of the same resource
+			\end{itemize}
+
+
+			\begin{questionAnswer}
+				\qItem{REST}{Repersentational State Transfer}
+				\qItem{6 Constrants}{
+				\begin{enumerate}
+					\item Uniform Interface
+					\item Stateless
+					\item Client-server
+					\item Cacheable
+					\item Layered System
+					\item Code on Demand
+				\end{enumerate}
+				}
+				\qItem{Repersentations}{How resources are manipulated, typically JSON or XML}
+				\qItem{Interface}{Typically HTTP}
+				\qItem{Stateless}{Each request has enough context to get all info for server. Any state is client side only}
+				\qItem{Client-Server}{The uniform interface is what is between them.}
+				\qItem{Cacheable}{\FIXME{what is cachable?}}
+				\qItem{Layered System}{Client can't assume direct connection to server. All you know is how to ask and what should get back.}
+				\qItem{Code on Demand}{Optional constraint. Send executable java script etc.}
+				\qItem{Breaking Constraints}{Breaking any but code on demand makes it not technically a REST API}
+			\end{questionAnswer}
+		\end{questions}
+
+		\begin{questions}{Security}
+			2 common protocols for secure REST APIs
+			\begin{questionAnswer}
+				\qItem{OAuth1}{}
+				\qItem{OAuth2}{allows you to manage authentication and resource authorization for any type of application (native mobile app, native tablet app, JavaScript app, server side web app, batch processing…) with or without the resource owner’s consent. Defacto standard.}
+			\end{questionAnswer}
+		\end{questions}
+
+		\begin{questions}{Resource Names}
+			\begin{questionAnswer}
+				\qItem{Nouns}{The verb is the HTTP request, the resource name is the noun}
+				\qItem{Plural}{It is prefered to use plural names like /v1/users and /v1/users/007}
+				\qItem{URI Case}{Preference to snake\_case}
+				\qItem{Body Case}{Preference to snake\_case or camelCase (imma use camelCase)}
+			\end{questionAnswer}
+		\end{questions}
+
+		\begin{questions}{Terms}
+			\begin{questionAnswer}
+				\qItem{Affordance}{Usability of the API}
+			\end{questionAnswer}
+		\end{questions}
+
+		\begin{questions}{HTTP}
+			\begin{questionAnswer}
+				\qItem{Verbs}{GET, POST, PUT, DELETE, HEAD, OPTIONS}
+			\end{questionAnswer}
+		\end{questions}
+
+		\begin{questions}{Frameworks}
+			\begin{tabular}{ll}
+			\textbf{Django}&\href{http://www.django-rest-framework.org/}{Link}\\
+			\textbf{Flask}&\href{https://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask}{Link}\\
+			\textbf{API Integration}&\href{https://realpython.com/blog/python/api-integration-in-python/}{Link}
+			\end{tabular}
+		\end{questions}
+
+		\begin{questions}{Python Tools}
+			\begin{description}
+				\item[Requests]\href{https://pypi.python.org/pypi/requests}{Requests HTTP library}
+				\item[CGI]\href{https://docs.python.org/3/howto/webservers.html}{Link}
+			\end{description}
+		\end{questions}
+
+		\begin{questions}{URL}
+			\begin{questionAnswer}
+				\qItem{Name}{\href{https://en.wikipedia.org/wiki/URL}{Universal Resource Loctor}}
+				\qItem{RFC Origin}{RFC 1738}
+				\qItem{URI}{URL is a subtype of URI, Uniform Resource Identifier}
+				\qItem{Format}{Has a protocol (http or https), hostname (www.example.com) and a file name (index.html)}
+			\end{questionAnswer}
+
+		\subsection{URI Syntax}
+		\begin{center}
+			\begin{verbatim}
+				scheme:[//[user[:password]@]host[:port]][/path][?query][#fragment]
+			\end{verbatim}
+		\end{center}
+
+		\begin{itemize}
+			\item \textbf{Scheme} A sequence of characters beginning with a letter and followed by any combination of letters, digits, plus (+), period (.), or hyphen (-). Case insensitive, ended by a colon (:). Typically http(s), file, etc.
+			\item \textbf{Double Slash} (//) Usually required
+			\item \textbf{Authority Part}
+
+				\begin{itemize}
+					\item Optional authentication section of a user name and password, separated by a colon, followed by an at symbol (@)
+					\item A "host", hotname/IP address. IPv4 addresses must be in dot-decimal notation, and IPv6 addresses must be enclosed in brackets ([ ]).
+					\item Port number \ra \opt{host name}:\opt{port number}, optional
+				\end{itemize}
+			\item \textbf{Path} Path to the file/resource to be retrieved
+			\item \textbf{Query} ? followed by a query string. Syntax not well defined, usually a sequence of attribute-value pairs seperated by a ; or \& delimiter.
+			\item \textbf{Fragment} \# followed by a fragment identifier providing direction to a secondary resource.
+		\end{itemize}
+		\end{questions}
+
+	\chapter{Testing}
+		\begin{tabular}{ll}
+			\textbf{unittest}&\href{https://docs.python.org/3.5/library/unittest.html}{Link}\\
+		\end{tabular}
